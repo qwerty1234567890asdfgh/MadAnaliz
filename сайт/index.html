@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>События Петропавловска</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Применяем базовые стили для новой вкладки */
+        #about {
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        #about h2 {
+            margin-top: 0;
+        }
+        #about p {
+            line-height: 1.6;
+        }
+        #about ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        #about img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .team-member img {
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Стиль для кнопки технической поддержки */
+        .support-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .support-button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        /* Стиль для окна поддержки */
+        #support-window {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.5s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .support-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .support-body {
+            padding: 10px;
+        }
+
+        .support-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .support-button-close {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>События Петропавловска</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#sputnik-content" class="tab-link active">Новости Sputnik</a></li>
+            <li><a href="#notifications" class="tab-link">Уведомления</a></li>
+            <li><a href="#services" class="tab-link">Справочник</a></li>
+            <li><a href="#about" class="tab-link">О нас</a></li> <!-- Новая вкладка -->
+            <li><a href="#feedback" class="tab-link">Отзывы</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="sputnik-content" class="tab-content active fade-in">
+            <h2>Новости из Петропавловска</h2>
+            <iframe src="https://ru.sputnik.kz/geo_Petropavlovsk/" style="width: 100%; height: 500px; border: none; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></iframe>
+        </section>
+
+        <section id="notifications" class="tab-content fade-in">
+            <h2>Уведомления о работе и вакансиях</h2>
+            <p>Здесь вы можете найти актуальные вакансии и предложения о работе в Петропавловске.</p>
+            <iframe src="https://rabota.kz/?ysclid=m2wyfnkgyu131204417" style="width: 100%; height: 500px; border: none; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></iframe>
+        </section>
+
+        <section id="services" class="tab-content fade-in">
+            <h2>Справочник Услуг</h2>
+            <p>Полезные ссылки для жителей Петропавловска:</p>
+            <a href="https://2gis.kz/petropavlovsk" target="_blank" class="service-button">Поликлиники</a>
+            <a href="https://2gis.kz/petropavlovsk" target="_blank" class="service-button">Спортивные Центры</a>
+            <a href="https://2gis.kz/petropavlovsk" target="_blank" class="service-button">Парковки</a>
+            <a href="https://2gis.kz/petropavlovsk" target="_blank" class="service-button">Пункты Сбора Мусора</a>
+        </section>
+
+<section id="about" class="tab-content fade-in"> <!-- Обновленная секция "О нас" -->
+    <h2>О нас</h2>
+    <p>Мы команда энтузиастов, стремящихся сделать Петропавловск более открытым и доступным для его жителей и гостей. Наша цель — предоставить актуальную информацию о событиях, новостях и полезных ресурсах города.</p>
+    <h3>Наши ценности:</h3>
+    <ul>
+        <li>Открытость</li>
+        <li>Доступность информации</li>
+        <li>Поддержка местных инициатив</li>
+        <li>Сотрудничество с горожанами</li>
+    </ul>
+    <h3>Наша команда:</h3>
+    <div class="team-member">
+        <img src="img/qwertyu.png" alt="Член команды">
+        <div>
+            <strong>mykish</strong> - Основатель и руководитель проекта
+        </div>
+    </div>
+    <div class="team-member">
+        <img src="img/07840032.jpg" alt="Член команды">
+        <div>
+            <strong>mkalixy</strong> - Разработчик веб-сайта
+        </div>
+    </div>
+    <div class="team-member">
+        <img src="img/83846cce.jpg" alt="Член команды">
+        <div>
+            <strong>Сериков Адиль</strong> - Менеджер по контенту
+        </div>
+    </div>
+    <div class="team-member">
+        <img src="img/6013f03a.jpg" alt="Член команды">
+        <div>
+            <strong>Ботаев Диас</strong> - Специалист по PR и коммуникациям
+        </div>
+    </div>
+    <div class="team-member">
+        <img src="img/c33b8716.jpg" alt="Член команды">
+        <div>
+            <strong>Павел Дуров</strong> - Дизайнер и контент-менеджер
+        </div>
+    </div>
+    <h3>Контакты:</h3>
+    <p>Вы можете связаться с нами по электронной почте: <a href="mailto:info@petropavlovsk.kz">info@petropavlovsk.kz</a></p>
+    <img src="img/325535fb0d301b.jpg" alt="Петропавловск" />
+</section>
+
+<section id="feedback" class="tab-content fade-in">
+    <h2>Отзывы</h2>
+    <div id="feedback-list">
+        <div class="feedback-item">Соловьев Кирилл: Отличное место для отдыха!</div>
+        <div class="feedback-item">Визнер Артур: Понравился фестиваль, было весело!</div>
+        <div class="feedback-item">Михель Павел: Очень интересные события, рекомендую!</div>
+        <!-- ... другие отзывы ... -->
+    </div>
+    <textarea id="feedback-input" placeholder="Оставьте ваш отзыв" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+    <button id="submit-feedback-btn">Отправить Отзыв</button>
+    
+    <div id="feedback-message" style="margin-top: 10px; color: green;"></div>
+</section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 События Петропавловска</p>
+    </footer>
+
+    <!-- Кнопка поддержки -->
+    <button class="support-button" id="support-btn">?</button>
+
+    <!-- Окно поддержки -->
+    <div id="support-window">
+        <div class="support-header">
+            <span>Техническая поддержка</span>
+            <button class="support-button-close" id="close-support">X</button>
+        </div>
+        <div class="support-body">
+            <textarea class="support-input" placeholder="Задайте свой вопрос"></textarea>
+            <button class="support-button-close">Отправить</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Скрипт для открытия и закрытия окна поддержки
+        const supportBtn = document.getElementById('support-btn');
+        const supportWindow = document.getElementById('support-window');
+        const closeSupportBtn = document.getElementById('close-support');
+
+        supportBtn.onclick = function() {
+            supportWindow.style.display = 'block';
+        };
+
+        closeSupportBtn.onclick = function() {
+            supportWindow.style.display = 'none';
+        };
+    </script>
+</body>
+</html>
